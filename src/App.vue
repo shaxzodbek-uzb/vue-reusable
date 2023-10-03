@@ -1,17 +1,21 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+
+//        IMPORTS       //
+
+import { RouterView, useRoute } from 'vue-router'
+import Header from '@/components/Layout/Header.vue'
+
+//        DECLARATIONS  //
+
+const router = useRoute()
+
 </script>
 
 <template>
-  <header>
-
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <Header />
+  <div :class="{
+    'p-8': router?.meta?.layout !== 'full'
+  }">
+    <RouterView />
+  </div>
 </template>
