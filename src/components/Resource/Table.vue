@@ -13,12 +13,12 @@ const props = defineProps({
 
 const items = ref([])
 
-axios.get('/user/roles').then(({data: {items: loadedItems}}) => {
+axios.get('/user/roles').then(({ data: { items: loadedItems } }) => {
     console.log(loadedItems);
     items.value = loadedItems.data
-    })
+})
 </script>
 
 <template>
-<Table :columns="resource.columns" :items="items"></Table>
+    <Table :columns="resource.columns" :items="items"></Table>
 </template>

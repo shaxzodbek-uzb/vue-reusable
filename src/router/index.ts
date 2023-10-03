@@ -12,7 +12,7 @@ const router = createRouter({
       name: 'modules',
       component: ChildViewer,
       meta: {
-        auth: true,
+        auth: false,
       },
       children: [
         {
@@ -26,7 +26,10 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: Login,
+      meta: {
+        layout: 'full',
+      },
     },
     {
       path: '/about',
