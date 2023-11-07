@@ -1,20 +1,35 @@
-<script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import Sidebar from "@/components/layout/Sidebar.vue";
-import Header from "@/components/layout/Header.vue";
-</script>
+<!DOCTYPE html>
+<html lang="en">
 
-<template>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    eCommerce Dashboard | TailAdmin - Tailwind CSS Admin Dashboard Template
+  </title>
+</head>
+
+<body
+  x-data="{ page: 'ecommerce', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+  x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+  :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}">
+  <!-- ===== Preloader Start ===== -->
+  <include src="./partials/preloader.html"></include>
+  <!-- ===== Preloader End ===== -->
+
   <!-- ===== Page Wrapper Start ===== -->
   <div class="flex h-screen overflow-hidden">
     <!-- ===== Sidebar Start ===== -->
-    <Sidebar />
+    <include src="./partials/sidebar.html"></include>
     <!-- ===== Sidebar End ===== -->
 
     <!-- ===== Content Area Start ===== -->
     <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
       <!-- ===== Header Start ===== -->
-      <Header />
+      <include src="./partials/header.html" />
       <!-- ===== Header End ===== -->
 
       <!-- ===== Main Content Start ===== -->
@@ -35,7 +50,7 @@ import Header from "@/components/layout/Header.vue";
                     fill="" />
                 </svg>
               </div>
-
+        
               <div class="mt-4 flex items-end justify-between">
                 <div>
                   <h4 class="text-title-md font-bold text-black dark:text-white">
@@ -43,7 +58,7 @@ import Header from "@/components/layout/Header.vue";
                   </h4>
                   <span class="text-sm font-medium">Total views</span>
                 </div>
-
+        
                 <span class="flex items-center gap-1 text-sm font-medium text-meta-3">
                   0.43%
                   <svg class="fill-meta-3" width="10" height="11" viewBox="0 0 10 11" fill="none"
@@ -56,7 +71,7 @@ import Header from "@/components/layout/Header.vue";
               </div>
             </div>
             <!-- Card Item End -->
-
+        
             <!-- Card Item Start -->
             <div
               class="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -74,7 +89,7 @@ import Header from "@/components/layout/Header.vue";
                     fill="" />
                 </svg>
               </div>
-
+        
               <div class="mt-4 flex items-end justify-between">
                 <div>
                   <h4 class="text-title-md font-bold text-black dark:text-white">
@@ -82,7 +97,7 @@ import Header from "@/components/layout/Header.vue";
                   </h4>
                   <span class="text-sm font-medium">Total Profit</span>
                 </div>
-
+        
                 <span class="flex items-center gap-1 text-sm font-medium text-meta-3">
                   4.35%
                   <svg class="fill-meta-3" width="10" height="11" viewBox="0 0 10 11" fill="none"
@@ -95,7 +110,7 @@ import Header from "@/components/layout/Header.vue";
               </div>
             </div>
             <!-- Card Item End -->
-
+        
             <!-- Card Item Start -->
             <div
               class="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -110,7 +125,7 @@ import Header from "@/components/layout/Header.vue";
                     fill="" />
                 </svg>
               </div>
-
+        
               <div class="mt-4 flex items-end justify-between">
                 <div>
                   <h4 class="text-title-md font-bold text-black dark:text-white">
@@ -118,7 +133,7 @@ import Header from "@/components/layout/Header.vue";
                   </h4>
                   <span class="text-sm font-medium">Total Product</span>
                 </div>
-
+        
                 <span class="flex items-center gap-1 text-sm font-medium text-meta-3">
                   2.59%
                   <svg class="fill-meta-3" width="10" height="11" viewBox="0 0 10 11" fill="none"
@@ -131,7 +146,7 @@ import Header from "@/components/layout/Header.vue";
               </div>
             </div>
             <!-- Card Item End -->
-
+        
             <!-- Card Item Start -->
             <div
               class="rounded-sm border border-stroke bg-white py-6 px-7.5 shadow-default dark:border-strokedark dark:bg-boxdark">
@@ -149,7 +164,7 @@ import Header from "@/components/layout/Header.vue";
                     fill="" />
                 </svg>
               </div>
-
+        
               <div class="mt-4 flex items-end justify-between">
                 <div>
                   <h4 class="text-title-md font-bold text-black dark:text-white">
@@ -157,7 +172,7 @@ import Header from "@/components/layout/Header.vue";
                   </h4>
                   <span class="text-sm font-medium">Total Users</span>
                 </div>
-
+        
                 <span class="flex items-center gap-1 text-sm font-medium text-meta-5">
                   0.95%
                   <svg class="fill-meta-5" width="10" height="11" viewBox="0 0 10 11" fill="none"
@@ -171,45 +186,44 @@ import Header from "@/components/layout/Header.vue";
             </div>
             <!-- Card Item End -->
           </div>
-
+        
           <div class="mt-4 grid grid-cols-12 gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5">
             <!-- ====== Chart One Start -->
             <include src="./partials/chart-01.html" />
             <!-- ====== Chart One End -->
-
+        
             <!-- ====== Chart Two Start -->
             <include src="./partials/chart-02.html" />
             <!-- ====== Chart Two End -->
-
+        
             <!-- ====== Chart Three Start -->
             <include src="./partials/chart-03.html" />
             <!-- ====== Chart Three End -->
-
+        
             <!-- ====== Map One Start -->
             <include src="./partials/map-01.html" />
             <!-- ====== Map One End -->
-
+        
             <!-- ====== Table One Start -->
             <div class="col-span-12 xl:col-span-8">
               <include src="./partials/table-01.html" />
             </div>
             <!-- ====== Table One End -->
-
+        
             <!-- ====== Chat Card Start -->
             <div
               class="col-span-12 rounded-sm border border-stroke bg-white py-6 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
               <h4 class="mb-6 px-7.5 text-xl font-bold text-black dark:text-white">
                 Chats
               </h4>
-
+        
               <div>
                 <a href="messages.html" class="flex items-center gap-5 py-3 px-7.5 hover:bg-gray-3 dark:hover:bg-meta-4">
                   <div class="relative h-14 w-14 rounded-full">
                     <img src="./images/user/user-03.png" alt="User" />
-                    <span
-                      class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-3"></span>
+                    <span class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-3"></span>
                   </div>
-
+        
                   <div class="flex flex-1 items-center justify-between">
                     <div>
                       <h5 class="font-medium text-black dark:text-white">
@@ -228,10 +242,9 @@ import Header from "@/components/layout/Header.vue";
                 <a href="messages.html" class="flex items-center gap-5 py-3 px-7.5 hover:bg-gray-3 dark:hover:bg-meta-4">
                   <div class="relative h-14 w-14 rounded-full">
                     <img src="./images/user/user-04.png" alt="User" />
-                    <span
-                      class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-3"></span>
+                    <span class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-3"></span>
                   </div>
-
+        
                   <div class="flex flex-1 items-center justify-between">
                     <div>
                       <h5 class="font-medium">Henry Fisher</h5>
@@ -245,10 +258,9 @@ import Header from "@/components/layout/Header.vue";
                 <a href="messages.html" class="flex items-center gap-5 py-3 px-7.5 hover:bg-gray-3 dark:hover:bg-meta-4">
                   <div class="relative h-14 w-14 rounded-full">
                     <img src="./images/user/user-05.png" alt="User" />
-                    <span
-                      class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-6"></span>
+                    <span class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-6"></span>
                   </div>
-
+        
                   <div class="flex flex-1 items-center justify-between">
                     <div>
                       <h5 class="font-medium">Wilium Smith</h5>
@@ -262,10 +274,9 @@ import Header from "@/components/layout/Header.vue";
                 <a href="messages.html" class="flex items-center gap-5 py-3 px-7.5 hover:bg-gray-3 dark:hover:bg-meta-4">
                   <div class="relative h-14 w-14 rounded-full">
                     <img src="./images/user/user-01.png" alt="User" />
-                    <span
-                      class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-3"></span>
+                    <span class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-3"></span>
                   </div>
-
+        
                   <div class="flex flex-1 items-center justify-between">
                     <div>
                       <h5 class="font-medium text-black dark:text-white">
@@ -284,10 +295,9 @@ import Header from "@/components/layout/Header.vue";
                 <a href="messages.html" class="flex items-center gap-5 py-3 px-7.5 hover:bg-gray-3 dark:hover:bg-meta-4">
                   <div class="relative h-14 w-14 rounded-full">
                     <img src="./images/user/user-02.png" alt="User" />
-                    <span
-                      class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-7"></span>
+                    <span class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-7"></span>
                   </div>
-
+        
                   <div class="flex flex-1 items-center justify-between">
                     <div>
                       <h5 class="font-medium">Jubin Jack</h5>
@@ -301,10 +311,9 @@ import Header from "@/components/layout/Header.vue";
                 <a href="messages.html" class="flex items-center gap-5 py-3 px-7.5 hover:bg-gray-3 dark:hover:bg-meta-4">
                   <div class="relative h-14 w-14 rounded-full">
                     <img src="./images/user/user-05.png" alt="User" />
-                    <span
-                      class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-6"></span>
+                    <span class="absolute right-0 bottom-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-meta-6"></span>
                   </div>
-
+        
                   <div class="flex flex-1 items-center justify-between">
                     <div>
                       <h5 class="font-medium">Wilium Smith</h5>
@@ -324,5 +333,8 @@ import Header from "@/components/layout/Header.vue";
       <!-- ===== Main Content End ===== -->
     </div>
     <!-- ===== Content Area End ===== -->
-</div>
-<!-- ===== Page Wrapper End ===== --></template>
+  </div>
+  <!-- ===== Page Wrapper End ===== -->
+</body>
+
+</html>
